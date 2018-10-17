@@ -250,7 +250,35 @@ TRACE *vornamen
             </div>
             <div class="step">
                 <h2 class="red">Zugriff auf XML-Datei</h2>
-                <pre><code class="linenumbers"></code></pre>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+files=FILE_NAMES (-,TUSTEP_DSK)
+xmlfile=FILTER (files,":*.xml:",-)
+sz_xmlfile=SIZE(xmlfile)
+IF (sz_xmlfile>1) STOP
+status=OPEN (xmlfile,READ,-std-)
+ACCESS q: READ/STREAM/UTF8 $xmlfile s,a+t+e,typ,stack,stack_num
+ LOOP/99999
+ READ/EXIT q
+  TRACE *a
+ ENDLOOP
+ENDACCESS/PRINT q
+</code></pre>
+                <p class="x-small right"><code>access_xml</code></p>
+            </div>
+            <div class="step">
+                <h2 class="red">#*import</h2>
+<pre><code class="linenumbers">
+filename=EXTRACT (xmlfile,0," . ")
+zielname=CONCAT (filename,".tf")
+status=CREATE (zielname,seq-o,-std-)
+EXECUTE #*import,{xmlfile},{zielname},lo=+,ig=-
+ACCESS q: READ/STREAM $zielname s.z/u,a+t+e,stack,stack_num
+LOOP/99999
+ READ/EXIT q
+ TRACE *a
+ENDLOOP
+ENDACCESS/PRINT q
+</code></pre>
                 <p class="x-small right"><code>access_xml</code></p>
             </div>
             <div class="step">
