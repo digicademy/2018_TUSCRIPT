@@ -105,7 +105,7 @@
                 <h3>MODE TUSCRIPT</h3>
                 <blockquote>Bei Makros, die neu erstellt werden, sollten grundsätzlich die Modi <code>TUSCRIPT</code> und <code>{}</code> eingestellt werden:
                     <pre><code>$$ MODE TUSCRIPT, {}</code></pre>
-                    Damit werden die <code>Modi VARIABLE</code> und <code>STATEMENT</code>, für die Steuerzeichen »Dollar«, »Klammern« und »Apostroph«, das Dollarzeichen, die geschweiften Klammern bzw. der Apostroph sowie der Modus »<code>{}</code>« eingestellt.</blockquote><p class="right x-small"><a href="data/handbuch.pdf">Handbuch, S. 411</a></p>
+                    Damit werden die <code>Modi VARIABLE</code> und <code>STATEMENT</code>, für die Steuerzeichen »Dollar«, »Klammern« und »Apostroph«, das Dollarzeichen, die geschweiften Klammern bzw. der Apostroph sowie der Modus »<code>{}</code>« eingestellt.</blockquote><p class="right x-small"><a href="data/handbuch.pdf#page=411">Handbuch, S. 411</a></p>
                 <h4><code>MODETUSCRIPT</code></h4>
                 <pre><code><span class="red">$$ MODE TUSCRIPT,{}</span>
 time=TIME()
@@ -116,14 +116,17 @@ PRINT/COLOR:EC "aktuelle Uhrzeit: ",time</span></code></pre>
             </div>
             <div class="step"><h2 class="red">Makroanweisungen I</h2>
                 <div class="row"><div class="two columns"><dl class="medium down-25"><dt>TIME</dt><dd/>
-                <dt>SPLIT</dt><dd/><dt>EXCHANGE</dt><dd/><dt>CONCAT</dt><dd/><dt>JOIN</dt><dd/></dl> <dl class="medium down-25"><dt>S_TABLE</dt><dt/><dt>X_TABLE</dt><dd/></dl></div><div class="ten columns">
+                <dt>SPLIT</dt><dd/><dt>SELECT</dt><dd/><dt>EXCHANGE</dt><dd/><dt>CONCAT</dt><dd/><dt>JOIN</dt><dd/></dl> <dl class="medium down-25"><dt>S_TABLE</dt><dt/><dt>X_TABLE</dt><dd/></dl></div><div class="ten columns">
                 <pre ><code class="linenumbers">$$ MODE TUSCRIPT,{}
 time=TIME()
 PRINT time
-
 -- SPLIT
 time_split=SPLIT (time,"~ ~")
 TRACE *time_split
+
+-- SELECT
+monat_ist=SELECT (time_split,2)
+TRACE *monat_ist
 
 time_cnt=SPLIT (time,"~ ~"|,datum,uhrzeit)
 TRACE *datum,uhrzeit
@@ -187,6 +190,7 @@ ENDDATA
 TRACE *vornamen
 </code></pre>                    
                 </div></div></div>
+            <!-- https://digicademy.github.io/2018_mainzed_lunch_lectures_markup/#/step-14 --> 
             <div class="step">
                 <h2 class="red">Arbeiten mit Segmentdateien</h2>
                 <table class="x-small">
@@ -241,6 +245,237 @@ TRACE *vornamen
                 </table>
             </div>
             <div class="step">
+                <h2 class="red">Bedingungen</h2>
+                <table>
+                    <tr><td>&amp;&amp;</td><td>und</td></tr>
+                    <tr><td>||</td><td>or</td></tr>
+                    <tr><td>.ct.</td><td>contains</td></tr>
+                    <tr><td>.nc.</td><td>not contains</td></tr>
+                    <tr><td>.hn.</td><td>has name</td></tr>
+                    <tr><td>.ha.</td><td>has attribute</td></tr>
+                    <tr><td>.sw.</td><td>starts with</td></tr>
+                    <tr><td>.ew.</td><td>ends with</td></tr>
+                    <tr><td>'digit'</td><td>is digit</td></tr>
+                </table>
+            </div>
+            <div class="step">
+                <h2 class="red">Vergleichsoperatoren</h2>
+                <table>    
+                    <tr><td>==</td><td>.eq.</td><td>ist gleich</td></tr>
+                    <tr><td>!=</td><td>.ne.</td><td>ist nicht gleich</td></tr>
+                    <tr><td>&lt;=</td><td>.le.</td><td>kleiner gleich</td></tr>
+                    <tr><td>&lt;</td><td>.lt.</td><td>kleiner als</td></tr>
+                    <tr><td>&gt;=</td><td>.ge.</td><td>größer gleich</td></tr>
+                    <tr><td>&gt;</td><td>.gt.</td><td>größer als</td></tr>
+                </table>
+                
+                <p class="x-small right"><a href="data/handbuch.pdf#page=457">Handbuch</a> S. 457-463</p>
+            </div>
+            <div class="step">
+                <h2 class="red">Hilfe im Handbuch</h2>
+                <ul class="line-height-one-five">
+                    <li>Gib Kommando &gt;<code>#*zebe</code></li>
+                    <li>Gib Kommando &gt;<code>suche</code> 
+                        <ul><li>indiziertes Handbuch<ul><li><code>alt+i</code> Index </li> <li><code>alt+v</code> Volltext</li><li> <code>--&gt;</code> nächster Eintrag</li><li> <code>&lt;--</code> letzter Eintrag</li></ul></li>
+                            <li>Gib Kommando &gt;<code>hilfe</code> Online Hilfe</li>
+                        </ul></li></ul>
+            </div>
+            
+           
+            <!--<div class="step">
+                <h2 class="red">Zugriff auf Webinhalte </h2>
+                
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+-\- INCLUDE "skripte" tables
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
+LOOP/99999
+READ/EXIT q
+IF (t.ct." Hexen-Einmaleins ") TRACE *stack_num
+-\- IF (stack_num.ct.stack_hexe) PRINT/COLOR:F0 t
+ENDLOOP
+ENDACCESS/PRINT q
+</code></pre>
+                <p class="x-small right"><code>hexerei</code></p>
+            </div>-->
+            
+            <div class="step">
+                <h2 class="red">Zugriff auf Webinhalt</h2>
+                <p>Frage: Enthält der XML-Text die Zeichenfolge "Hexeneinmaleins"?<br/>
+                An welcher Position in der Hierarchie?</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
+LOOP/999999999
+READ/EXIT q
+IF (t.ct." Hexen-Einmaleins ") TRACE *t,stack_num
+ENDLOOP
+ENDACCESS/PRINT q                    
+</code></pre>
+                <p class="x-small right"><code>hexerei01</code></p>
+            </div>
+            <div class="step">
+                <h2 class="red">Typ</h2>
+                <p>Frage: Gibt es in der Datei Portionen, die aus einem Anfangstags mit folgendem Content bestehen, aber ohne Endetag</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
+ LOOP/999999
+ READ/EXIT q
+
+ IF (typ==1&amp;&amp;t!="") TRACE *a,t,e
+
+ ENDLOOP
+ENDACCESS/PRINT q                    
+</code></pre>
+                <p class="x-small right"><code></code></p>
+            </div>
+            <div class="step">
+                <h2 class="red">typ</h2>
+                <table>
+                    <tr><td>0</td><td>nur Text</td></tr>
+                    <tr><td>1</td><td>Anfangstag ggbf. auch Text</td></tr>
+                    <tr><td>2</td><td>Endetag ggbf. auch Text</td></tr>
+                    <tr><td>3</td><td>Anfangs- und Endetext ggbf. auch Text</td></tr>
+                    <tr><td>…</td><td></td></tr>
+                    <tr><td>-1</td><td>"&lt;" ohne passende "&gt;"</td></tr>
+                    <tr><td>-2</td><td>"&gt;" ohne passende "&lt;"</td></tr>
+                    <tr><td>…</td><td></td></tr>
+                    <tr><td>-3</td><td>Anfangstag und Endetag unterscheiden sich in Groß- und Kleinschreibung</td></tr>
+                    <tr><td>-6</td><td>Noch offen Tags am Dateiende</td></tr>
+                </table>
+                <p class="x-small right"><a href="data/handbuch.pdf#page=612">Handbuch</a> S. 612</p>
+            </div>
+            <div class="step">
+                <h2 class="red">STACK_NUM</h2>
+                <p>Aufgabe: Gib die &lt;lg&gt; (linegroup), die das Suchwort "Hexen-Einmaleins" enthält (s.o) mit dem Zeilenzähler der Variable <code>daten</code> auf dem Bildschirm aus.</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+
+BUILD S_TABLE stack_hexe=*
+DATA &lt;TEI&gt;\[1\]&lt;text&gt;\[1\]&lt;body&gt;\[1\]&lt;div&gt;\[6\]&lt;div&gt;\[2\]&lt;div&gt;\[1\]&lt;sp&gt;\[48\]&lt;lg&gt;\[2\]
+
+--alternativ: INCLUDE "skripte" tables
+
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
+LOOP/999999
+READ/EXIT q
+
+IF (stack_num.ct.stack_hexe&amp;&amp;t!="") PRINT/COLOR:F0 s,": ",t
+
+ENDLOOP
+ENDACCESS/PRINT q                   
+</code></pre>
+                <p class="x-small right"><code>hexerei03</code></p>
+            </div>
+            <div class="step">
+                <h2 class="red">Lese- und Schreibzugriff</h2>
+                <p>Lesen einer UTF-8 codierten XML-Datei, Ausgeben in eine TUSTEP-Datei </p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+
+zieldatei="faust1.tf"
+status=CREATE (zieldatei,seq-o,-std-)
+
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten     s,    a+t+e
+ACCESS z: WRITE/ERASE/STREAM       $zieldatei s.z/u,a+t+e
+ LOOP/999999
+  READ/EXIT q
+  WRITE z
+ ENDLOOP
+ENDACCESS/PRINT q
+ENDACCESS/PRINT z                    
+</code></pre>
+                <p class="x-small right"><code>hexerei04</code></p>
+            </div>
+            <div class="step">
+                <h2>XML-Dateien im TUSTEP-Editor</h2>
+                <p>Beispieldatei: <code>faust1.tf</code></p>
+                <table>
+                    <tr><td>tp</td><td>Wohlgeformtheit prüfen</td></tr>
+                    <tr><td>tl</td><td>Tagliste</td></tr>
+                    <tr><td>tlh</td><td>Tagliste hierarchisch</td></tr>
+                    <tr><td>tli</td><td>Tagliste sortiert nach letztem Tag</td></tr>
+                    <tr><td>tz</td><td>Anzeige der Position</td></tr>
+                </table>
+                <p class="x-small right"><a href="">Handbuch</a></p>
+            </div>
+            <div class="step">
+                <h2 class="red">Lese- und Schreibzugriff mit Bedingungen</h2>
+                <p>Aufgabe: Hexeneinmal-Eins in Zieldatei schreiben und dabei dem &lt;lg&gt;-Tag ein Attribut zuweisen.</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+
+daten=REQUEST (url)
+INCLUDE "skripte" tables
+
+zieldatei="hexe.tf"
+status=CREATE (zieldatei,seq-o,-std-)
+
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten     s,    a+t+e,typ,stack,stack_num
+ACCESS z: WRITE/ERASE/STREAM       $zieldatei s.z/u,a+t+e
+LOOP/99999
+READ/EXIT q
+IF (stack_num.ct.stack_hexe) THEN
+ IF (a.hn."lg") THEN
+  PRINT "vorher:  ", a
+  a=SET_ATTRIBUTE (a,"xml:id","hexe")
+  PRINT "nachher: ", a
+ ENDIF
+ --- Attribute entfernen
+ IF (a.hn."l") a=START_TAG ("l")
+ --- Whitespace entfernen (SQUEEZE)
+ t=SQUEEZE(t)
+ --- In Zieldatei schreiben
+ WRITE z
+ENDIF
+ENDLOOP
+ENDACCESS/PRINT q
+ENDACCESS/PRINT z                    
+</code></pre>
+                <p class="x-small right"><code>hexerei05</code></p>
+            </div>
+            
+            <div class="step">
+                <h2 class="red">DICTIONARY</h2>
+                <p>Frage: Wieviele Tags kommen, wie oft in der Datei vor?</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
+daten=REQUEST (url)
+
+DICT tags CREATE
+ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
+
+LOOP/999999999
+ READ/EXIT q
+
+ IF (typ==1,3) THEN
+  tagname=GET_TAG_NAME (a)
+  DICT tags APPEND/QUIET/COUNT tagname,num,cnt,"",""
+ ENDIF
+
+ENDLOOP
+
+ENDACCESS/PRINT q
+ERROR/STOP CREATE ("tags.tf",seq-e,-std-)
+
+DICT tags UNLOAD/FILE/COUNTER "tags.tf",";"
+</code></pre>
+                <p class="x-small right"><code>DICT_TAGS</code></p>
+            </div>
+            <!--<div class="step">
                 <h2 class="red">Dateizugriffe</h2>
                 <ul class="line-height-one-five">
                     <li>Zugriff auf Webinhalte READ|WRITE STREAM/VARIABLE</li>
@@ -248,16 +483,12 @@ TRACE *vornamen
                     <li>Zeilenweise <code>READ|WRITE RECORDS</code></li>
                     <li>Dateien mit definierten Dateistrukturen <code>READ|UPDATE|WRITE structures</code></li>
                 </ul>
-            </div>
+            </div>-->
             <div class="step">
                 <h2 class="red">Zugriff auf XML-Datei</h2>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
-files=FILE_NAMES (-,TUSTEP_DSK)
-xmlfile=FILTER (files,":*.xml:",-)
-sz_xmlfile=SIZE(xmlfile)
-IF (sz_xmlfile>1) STOP
-status=OPEN (xmlfile,READ,-std-)
-ACCESS q: READ/STREAM/UTF8 $xmlfile s,a+t+e,typ,stack,stack_num
+status=OPEN ("ISRAEL_R.xml",READ,-std-)
+ACCESS q: READ/STREAM/UTF8 "ISRAEL_R.xml" s,a+t+e,typ,stack,stack_num
  LOOP/99999
  READ/EXIT q
   TRACE *a
@@ -266,12 +497,32 @@ ENDACCESS/PRINT q
 </code></pre>
                 <p class="x-small right"><code>access_xml</code></p>
             </div>
+            
             <div class="step">
-                <h2 class="red">#*import</h2>
-<pre><code class="linenumbers">
+                <h2 class="red"><code>#*import</code> einer WORD-XML-Datei</h2>
+<pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+files=FILE_NAMES (-,-std-)
+TRACE *files
+
+xmlfile=FILTER (files,":*.xml:",-)
+
+sz_xmlfile=SIZE(xmlfile)
+PRINT sz_xmlfile
+IF (sz_xmlfile>1) STOP
+
+status=OPEN (xmlfile,READ,-std-)
+
+ACCESS q: READ/STREAM/UTF8 $xmlfile s,a+t+e,typ,stack,stack_num
+ LOOP/99999
+ READ/EXIT q
+  TRACE *a
+ ENDLOOP
+ENDACCESS/PRINT q
+
 filename=EXTRACT (xmlfile,0," . ")
 zielname=CONCAT (filename,".tf")
 status=CREATE (zielname,seq-o,-std-)
+
 EXECUTE #*import,{xmlfile},{zielname},lo=+,ig=-
 ACCESS q: READ/STREAM $zielname s.z/u,a+t+e,stack,stack_num
 LOOP/99999
@@ -280,15 +531,26 @@ LOOP/99999
 ENDLOOP
 ENDACCESS/PRINT q
 </code></pre>
-                <p class="x-small right"><code>access_xml</code></p>
+                <p class="x-small right"><code>access_xml_2</code></p>
             </div>
             <div class="step">
-                <h2 class="red">RTF-Datei importieren</h2>
+                <h2 class="red">RTF-Datei(en) importieren</h2>
+                <h3><code>DEFINE</code></h3>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+FETCH dsk = TUSTEP_DSK
+dirname=DIRNAME(dsk)
+DEFINE/SYSTEM dirname = dirname
+FETCH dirname = dirname
+projects=PROJECT_NAMES($dirname)
+files=FILE_NAMES (-,$dsk)
+</code></pre>
+                <h3><code>importrtf</code></h3>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 INCLUDE "skripte" define
 rtffiles=FILTER (files," *.rtf ",-)
 TRACE *rtffiles
 LOOP n,rtf=rtffiles
+PRINT "Exportdatei: ",rtf,"
  path2rtffile=ADJUST_PATH (dsk,rtf)
  DEFINE "rtffile" = path2rtffile
  status=OPEN ("rtffile",READ,-)
@@ -298,46 +560,24 @@ LOOP n,rtf=rtffiles
  importziel=CONCAT ("import",n,".tf")
  status=CREATE (importziel,SEQ-o,-std-)
  EXECUTE #*import,{importquelle},{importziel},lo=+,ig=-
+ PRINT "Importdatei: ",importziel
  status=DELETE (importquelle)
  status=CLOSE ("rtffile")
-ENDLOOP</code></pre>
-                <p class="x-small right"><code>importrtf</code></p>
-            </div>
-            <div class="step">
-                <h2 class="red">Zugriff auf Webinhalte </h2>
-                
-                        <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
-url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
-
-daten=REQUEST (url)
--- INCLUDE "skripte" tables
-ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
-LOOP/99999
-READ/EXIT q
-IF (t.ct." Hexen-Einmaleins ") TRACE *stack_num
--- IF (stack_num.ct.stack_hexe) PRINT/COLOR:F0 t
 ENDLOOP
-ENDACCESS/PRINT q
 </code></pre>
-                        <p class="x-small right"><code>hexerei</code></p>
-            <table>
-                <tr><td>.ct.</td><td>contains</td></tr>
-                <tr><td>.nc.</td><td>not contains</td></tr>
-                <tr><td>.hn.</td><td>has name</td></tr>
-                <tr><td>.ha.</td><td>has attribute</td></tr>
-                <tr><td>.sw.</td><td>starts with</td></tr>
-                <tr><td>.ew.</td><td>ends with</td></tr>
-                <tr><td>'digit'</td><td>is digit</td></tr>
- 
-            </table>
-                <p class="x-small right"><a href="data/handbuch.pdf">Handbuch</a> S. 457-463</p>
+                
             </div>
             
-            <div class="step">
-                <h2>WRITE/STRUCTURES</h2>
-                <blockquote>Daten mit definierten Dateistrukturen</blockquote>
-                <p class="right x-small"></p>
-            </div>
+            <!-- Vorlage -->
+            <!--<div class="step">
+                <h2 class="red"></h2>
+                <p></p>
+                <pre><code class="linenumbers">                    
+</code></pre>
+                <p class="x-small right"><code></code></p>
+            </div>-->            
+            
+            
             <div class="step">
                 <h2 class="red">Zählen und Suchen</h2>
                 <code class="small">FIND/NEXT d (anf,end,trenn,tausch; pos1,pos2,pos3; neg1,neg2,neg3; wdh)</code>
@@ -345,9 +585,9 @@ ENDACCESS/PRINT q
                     <div class="four columns ">
                 
                 <blockquote class="small">Beim <strong>Suchen</strong> von Texteinheiten werden alle Sätze einer Texteinheit zu einer einzigen Zeichenfolge zusammengefasst; dann wird geprüft, ob diese Zeichenfolge die Suchbedingungen erfüllt.</blockquote>
-                        <p class="right x-small"><a href="data/handbuch.pdf">Handbuch</a>, S. 598</p>  </div>
+                        <p class="right x-small"><a href="data/handbuch.pdf#page=598">Handbuch</a>, S. 598</p>  </div>
                     <div class="eight columns">              
-                <blockquote class="small">Die Anweisung <code>COUNT</code> zum Zählen bestimmter Texteinheiten entspricht […] der Anweisung <code>FIND</code> zum Suchen einer bestimmten Texteinheit [...]. Es wird derselbe Datenbereich wie bei der FIND-Anweisung durchsucht. Jedoch wird nicht nur die erste Texteinheit gesucht, die die Suchbedingungen erfüllt, sondern festgestellt, wieviele Texteinheiten insgesamt die Suchbedingung erfüllen.</blockquote><p class="right x-small"><a href="data/handbuch.pdf">Handbuch</a>, S. 600</p>
+                <blockquote class="small">Die Anweisung <code>COUNT</code> zum Zählen bestimmter Texteinheiten entspricht […] der Anweisung <code>FIND</code> zum Suchen einer bestimmten Texteinheit [...]. Es wird derselbe Datenbereich wie bei der FIND-Anweisung durchsucht. Jedoch wird nicht nur die erste Texteinheit gesucht, die die Suchbedingungen erfüllt, sondern festgestellt, wieviele Texteinheiten insgesamt die Suchbedingung erfüllen.</blockquote><p class="right x-small"><a href="data/handbuch.pdf#page=600">Handbuch</a>, S. 600</p>
                     
                     </div></div>
                 <h3><code>count_find</code></h3>
@@ -374,6 +614,18 @@ ENDLOOP
 ENDACCESS q
 </code></pre>
             </div>
+            <div class="step">
+                <h2 class="red"></h2>
+                <p></p>
+                <pre><code class="linenumbers">                    
+</code></pre>
+                <p class="x-small right"><code></code></p>
+            </div>
+            <!--<div class="step">
+                <h2>WRITE/STRUCTURES</h2>
+                <blockquote>Daten mit definierten Dateistrukturen</blockquote>
+                <p class="right x-small"></p>
+            </div>-->
             <!--<div class="step">
                 <div class="row">
                     <div class="six columns"><h2 class="red">###</h2>
