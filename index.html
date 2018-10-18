@@ -534,6 +534,69 @@ ENDACCESS/PRINT q
                 <p class="x-small right"><code>access_xml_2</code></p>
             </div>
             <div class="step">
+                <h2 class="red">IMPORT xml</h2>
+                <p></p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+--- Quelle
+xmlfile="ISRAEL_R.xml"
+status=OPEN (xmlfile,READ,-std-)
+
+--- Importziel
+tffile="ziel.tf"
+status=CREATE (tffile,seq-o,-std-)
+
+--- Zieldatei (XML)
+status=CREATE ("ziel.xml",FDF-o,-std-)
+
+--- Import
+EXECUTE #*import,{xmlfile},ziel.tf,lo=+,ig=+
+
+ACCESS q: READ/STREAM/RECORDS     "ziel.tf"   s.z/u,a+t+e
+ACCESS z: WRITE/ERASE/STREAM/UTF8 "ziel.xml"  s    ,a+t+e
+--- Satznummer der Vorlage soll nicht übernommen werden, darum ss
+LOOP/999999
+ READ/EXIT q
+ IF (a.sw."&lt;0") TRACE *a
+ WRITE  z
+ENDLOOP
+ENDACCESS q
+ENDACCESS/PRINT z</code></pre>
+                <p class="right x-small"><code>importexport</code></p>
+            </div>
+            <div class="step">
+                <h2 class="red">Import xml - tf - Export xml</h2>
+                <p>Aufgabe bereinigte Word2003 xml-Datei ausgeben</p>
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+--- Quelle
+xmlfile="ISRAEL_R.xml"
+status=OPEN (xmlfile,READ,-std-)
+
+--- Importziel
+tffile="ziel.tf"
+status=CREATE (tffile,seq-o,-std-)
+
+--- Zieldatei (XML)
+status=CREATE ("ziel.xml",FDF-o,-std-)
+
+--- Import
+EXECUTE #*import,{xmlfile},ziel.tf,lo=+,ig=+
+
+ACCESS q: READ/STREAM/RECORDS     "ziel.tf"   s.z/u,a+t+e
+ACCESS z: WRITE/ERASE/STREAM/UTF8 "ziel.xml"  s    ,a+t+e
+--- Satznummer der Vorlage soll nicht übernommen werden, darum ss
+LOOP/999999
+ READ/EXIT q
+ IF (a.sw."&lt;0") PRINT a
+ IF (a.sw."&lt;0") a=EXCHANGE (a,":{#}::")
+ IF (e.sw."&lt;/0") e=EXCHANGE (e,":{#}::")
+ WRITE z
+ENDLOOP
+ENDACCESS q
+ENDACCESS/PRINT z                    
+</code></pre>
+                <p class="x-small right"><code>importexp_02</code></p>
+            </div>
+            <div class="step">
                 <h2 class="red">RTF-Datei(en) importieren</h2>
                 <h3><code>DEFINE</code></h3>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
@@ -613,13 +676,7 @@ ENDLOOP
 ENDACCESS q
 </code></pre>
             </div>
-            <div class="step">
-                <h2 class="red"></h2>
-                <p></p>
-                <pre><code class="linenumbers">                    
-</code></pre>
-                <p class="x-small right"><code></code></p>
-            </div>
+            
             <!--<div class="step">
                 <h2>WRITE/STRUCTURES</h2>
                 <blockquote>Daten mit definierten Dateistrukturen</blockquote>
