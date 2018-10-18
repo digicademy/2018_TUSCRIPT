@@ -591,9 +591,9 @@ ENDLOOP
                     
                     </div></div>
                 <h3><code>count_find</code></h3>
-                <pre><code class="linenumbers">$$! suche=eins
+                <pre><code class="linenumbers">$$! suche=Zwei
 $$ MODE TUSCRIPT,{}
-file="testdatei"
+file="hexe.tf"
 BUILD R_TABLE/BLANK/EXACT suche=$suche
 ACCESS q: READ/RECORDS $file s.z/u,zeile,anz,bla
 
@@ -604,11 +604,10 @@ PRINT "Zählergebnis"
 PRINT "In ", anz," von ",s," Sätzen wurde das Suchwort gefunden"
 
 SET s=anz=0
-PRINT " "
 PRINT "Findergebnis"
 LOOP
  FIND/NEXT/EXIT q (-;suche;-;-)
- zeileneu=HIGHLIGHT (zeile,suche,0,0,"<b>","</b>")
+ zeileneu=HIGHLIGHT (zeile,suche,0,0,"&lt;nr&gt;","&lt;/nr&gt;")
  PRINT s,".",z,": ",zeileneu
 ENDLOOP
 ENDACCESS q
