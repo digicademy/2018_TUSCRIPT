@@ -2,66 +2,44 @@
 <html>
     <head>
         <title>TUSCRIPT</title>
-
         <!-- meta information -->
         <meta name="author" content="Thomas Kollatz" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=1024" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-
         <!-- favicons -->
         <link rel="shortcut icon" href="resources/img/favicon.png" />
         <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
-
         <!-- CSS reset and grid -->
         <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
         <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
-
         <!-- fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
             rel="stylesheet" type="text/css" />
-
         <!-- styles for included libraries -->
-
         <!-- chartist -->
         <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
-
         <!-- unite gallery -->
         <link rel="stylesheet" href="vendor/unitegallery/css/unite-gallery.css" type="text/css" />
-
         <!-- codemirror -->
         <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
-
         <!-- highlight -->
         <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
         <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
-
-        <!-- swiper -->
-        <link rel="stylesheet" href="vendor/swiper/swiper.min.css" />
-
-
         <!-- magnific popup -->
         <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
-
         <!-- standard presentation styles -->
         <link href="resources/css/style.css" rel="stylesheet" />
-
         <!-- custom presentation styles -->
         <link href="resources/css/custom.css" rel="stylesheet" />
-
         <!-- js needed in head -->
-
         <!-- greuler -->
         <script src="vendor/d3/d3-3.5.6.js"></script>
         <script src="vendor/cola/cola.v3.min.js"></script>
         <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
-
         <!-- html5 dataset shim for IE -->
         <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
-        <!-- UnifrakturCook for Headers -->
-        <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700|UnifrakturMaguntia"
-            rel="stylesheet" />
     </head>
     <body>
         <div class="fallback-message">
@@ -72,32 +50,26 @@
         </div>
         <div id="impress">
             <div class="step">
-                <h5><strong>2018-10-17 | 18</strong> ADWL Mainz <a href="">TUSCRIPT</a>
-                </h5>
-                <h5>workshop <strong><a href=""> TUSCRIPT </a>
-                    </strong></h5>
-                <h2 class="red down-100">Einführung in die <code>TUSCRIPT</code></h2>
+                <h5><strong>2018-10-17 | 18</strong> ADWL Mainz <a href="">TUSCRIPT</a> </h5>
+                <h5>workshop <strong><a href=""> TUSCRIPT </a> </strong></h5>
+                <h2 class="red down-100">Einführung in <code>TUSCRIPT</code></h2>
                 <h3>Dateizugriffe mit der <code>TUSTEP</code>-Skriptsprache</h3>
-                <h5 class="down-100"> Präsentation <a href="https://digicademy.github.io/tustep4Pi"
-                        title="View the presentation online">
+                <h5 class="down-100"> Präsentation <a
+                    href="https://digicademy.github.io/2018_TUSCRIPT"
+                    title="View the presentation online">
                         https://digicademy.github.io/2018_TUSCRIPT</a>
                     <br /> Code <a href="https://github.com/digicademy/2018_TUSCRIPT"
-                        >https://github.com/digicademy/2018_TUSCRIPT</a>
-                </h5>
+                    >https://github.com/digicademy/2018_TUSCRIPT</a> </h5>
                 <h5>
-                    <strong><a href="http://orcid.org/0000-0003-1904-1841">Thomas Kollatz</a>
-                        <br />
+                    <strong><a href="http://orcid.org/0000-0003-1904-1841">Thomas Kollatz</a> <br />
                         <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
-                            class="twitter-icon" />
-                        <a href="https://twitter.com/kol_t" title="Thomas Kollatz on Twitter"
-                            >@kol_t</a>
-                        <a href="https://twitter.com/digicademy"
-                            title="Digitale Akademie on Twitter">@digicademy</a>
-                        <img src="resources/img/Octicons-mark-github.svg" alt="Twitter"
-                            class="gh-icon" />
-                        <a href="https://github.com/digicademy" title="digicademy on GitHub"
-                            >digicademy</a> • <a href="https://creativecommons.org/licenses/by/4.0/"
-                            >CC-BY 4.0</a></strong>
+                        class="twitter-icon" /> <a href="https://twitter.com/kol_t"
+                        title="Thomas Kollatz on Twitter">@kol_t</a> <a
+                        href="https://twitter.com/digicademy" title="Digitale Akademie on Twitter"
+                        >@digicademy</a> <img src="resources/img/Octicons-mark-github.svg"
+                        alt="Twitter" class="gh-icon" /> <a href="https://github.com/digicademy"
+                        title="digicademy on GitHub">digicademy</a> • <a
+                        href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a></strong>
                 </h5>
             </div>
             <div class="step">
@@ -105,19 +77,46 @@
                 <h3>MODE TUSCRIPT</h3>
                 <blockquote>Bei Makros, die neu erstellt werden, sollten grundsätzlich die Modi <code>TUSCRIPT</code> und <code>{}</code> eingestellt werden:
                     <pre><code>$$ MODE TUSCRIPT, {}</code></pre>
-                    Damit werden die <code>Modi VARIABLE</code> und <code>STATEMENT</code>, für die Steuerzeichen »Dollar«, »Klammern« und »Apostroph«, das Dollarzeichen, die geschweiften Klammern bzw. der Apostroph sowie der Modus »<code>{}</code>« eingestellt.</blockquote><p class="right x-small"><a href="data/handbuch.pdf#page=411">Handbuch, S. 411</a></p>
-                <h4><code>MODETUSCRIPT</code></h4>
+                    Damit werden die <code>Modi VARIABLE</code> und <code>STATEMENT</code>, für die Steuerzeichen »Dollar«, »Klammern« und »Apostroph«, das Dollarzeichen, die geschweiften Klammern bzw. der Apostroph sowie der Modus »<code>{}</code>« eingestellt.</blockquote>
+                <p class="right x-small">
+                    <a href="data/handbuch.pdf#page=411">Handbuch, S. 411</a>
+                </p>
+                <h4>
+                    <code>MODETUSCRIPT</code>
+                </h4>
                 <pre><code><span class="red">$$ MODE TUSCRIPT,{}</span>
 time=TIME()
 PRINT time
 <span class="substep">time=TIME()
 PRINT/COLOR:EC "aktuelle Uhrzeit: ",time</span></code></pre>
-                
             </div>
-            <div class="step"><h2 class="red">Makroanweisungen I</h2>
-                <div class="row"><div class="two columns"><dl class="medium down-25"><dt>TIME</dt><dd/>
-                <dt>SPLIT</dt><dd/><dt>SELECT</dt><dd/><dt>EXCHANGE</dt><dd/><dt>CONCAT</dt><dd/><dt>JOIN</dt><dd/></dl> <dl class="medium down-25"><dt>S_TABLE</dt><dt/><dt>X_TABLE</dt><dd/></dl></div><div class="ten columns">
-                <pre ><code class="linenumbers">$$ MODE TUSCRIPT,{}
+            <div class="step">
+                <h2 class="red">Makroanweisungen I</h2>
+                <div class="row">
+                    <div class="two columns">
+                        <dl class="medium down-25">
+                            <dt>TIME</dt>
+                            <dd> </dd>
+                            <dt>SPLIT</dt>
+                            <dd> </dd>
+                            <dt>SELECT</dt>
+                            <dd></dd>
+                            <dt>EXCHANGE</dt>
+                            <dd> </dd>
+                            <dt>CONCAT</dt>
+                            <dd> </dd>
+                            <dt>JOIN</dt>
+                            <dd> </dd>
+                        </dl>
+                        <dl class="medium down-25">
+                            <dt>S_TABLE</dt>
+                            <dt></dt>
+                            <dt>X_TABLE</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                    <div class="ten columns">
+                        <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 time=TIME()
 PRINT time
 -- SPLIT
@@ -156,17 +155,22 @@ PRINT tagesdatum
 -- JOIN
 datum_joined=JOIN(dd,".",mm,yyyy)
 PRINT datum_joined
-</code></pre><p class="x-small right"><code>makros_01</code></p>
- </div></div>           </div>
-            <div class="step"><h2 class="red">MODE DATA</h2>
+</code></pre>
+                        <p class="x-small right">
+                            <code>makros_01</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="step">
+                <h2 class="red">MODE DATA</h2>
                 <blockquote>Mit der Anweisung
                     <code>$$ MODE DATA</code>
                     kann eingestellt werden, dass nicht gekennzeichnete Zeilen als Daten angesehen werden. Anweisungszeilen müssen in diesem Fall mit zwei Dollarzeichen gekennzeichnet sein.</blockquote>
-            
                 <div class="row">
                     <div class="six columns">
                         <h3 class="down-50">MODE TUSCRIPT + MODE DATA </h3>
-<pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+                        <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 time=TIME()
 <span class="red">MODE DATA</span>
 $$ SET/DATA vornamen
@@ -178,9 +182,9 @@ $$ ENDDATA
 TRACE *vornamen
 </code></pre>
                     </div>
-                <div class="six columns">
-                    <h3 class="down-50">MODE TUSCRIPT</h3>
-<pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+                    <div class="six columns">
+                        <h3 class="down-50">MODE TUSCRIPT</h3>
+                        <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 time=TIME()
 SET/DATA vornamen
 <span class="red">DATA</span> Max Grüntgens
@@ -188,34 +192,49 @@ SET/DATA vornamen
 <span class="red">DATA</span> Hans-Werner Bartz
 ENDDATA
 TRACE *vornamen
-</code></pre>                    
-                </div></div></div>
-            <!-- https://digicademy.github.io/2018_mainzed_lunch_lectures_markup/#/step-14 --> 
+</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- https://digicademy.github.io/2018_mainzed_lunch_lectures_markup/#/step-14 -->
             <div class="step">
                 <h2 class="red">Arbeiten mit Segmentdateien</h2>
                 <table class="x-small">
-                    <tr><td>Anlegen der Segmentdatei auf Kommandoebene</td>
-                    <td><pre><code>#da,skripte,ran-ap</code></pre></td></tr>
+                    <tr>
+                        <td>Anlegen der Segmentdatei auf Kommandoebene</td>
+                        <td>
+                            <pre><code>#da,skripte,ran-ap</code></pre>
+                        </td>
+                    </tr>
                     <tr>
                         <td>Anmelden der Segmentdatei auf Kommandoebene</td>
-                        <td><pre><code>#an,,skripte</code></pre></td>
+                        <td>
+                            <pre><code>#an,,skripte</code></pre>
+                        </td>
                     </tr>
-                    
                     <tr>
                         <td>Öffnen der Standard-Tustep-Editordatei tustep.edt</td>
-                        <td><pre><code>#e,-std-</code></pre></td>
+                        <td>
+                            <pre><code>#e,-std-</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Inhaltsverzeichnis der Segmentdatei im Editor anzeigen</td>
-                        <td><pre><code>h,skripte,?</code></pre></td>
+                        <td>
+                            <pre><code>h,skripte,?</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Segment holen</td>
-                        <td><pre><code>h,skripte,request </code>oder<code>h,skripte,1</code></pre></td>
+                        <td>
+                            <pre><code>h,skripte,request </code>oder<code>h,skripte,1</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td> Segment ausführen</td>
-                        <td><pre><code>x, #ma,&lt;editor&gt;</code></pre></td>
+                        <td>
+                            <pre><code>x, #ma,&lt;editor&gt;</code></pre>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -224,64 +243,126 @@ TRACE *vornamen
                 <table class="x-small">
                     <tr>
                         <td>Anmelden der Segmentdatei auf Kommandoebene</td>
-                        <td><pre><code>#an,,skripte</code></pre></td>
+                        <td>
+                            <pre><code>#an,,skripte</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Definieren der Segmentdatei</td>
-                        <td><pre><code>#de,skripte</code></pre></td>
+                        <td>
+                            <pre><code>#de,skripte</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Inhaltsverzeichnis einer definierten Segmentdatei anzeigen</td>
-                        <td><pre><code>#in,$</code></pre></td>
+                        <td>
+                            <pre><code>#in,$</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Ausführen eines Skripts aus einer definierten Segmentdatei</td>
-                        <td><pre><code>#$request</code></pre></td>
+                        <td>
+                            <pre><code>#$request</code></pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Segment in eine Editordatei holen</td>
-                        <td><pre><code>h,skripte,request </code>oder<code>h,skripte,1</code> oder <code>h,$,1</code></pre> </td>
+                        <td>
+                            <pre><code>h,skripte,request </code>oder<code>h,skripte,1</code> oder <code>h,$,1</code></pre>
+                        </td>
                     </tr>
                 </table>
             </div>
             <div class="step">
                 <h2 class="red">Bedingungen</h2>
                 <table>
-                    <tr><td>&amp;&amp;</td><td>und</td></tr>
-                    <tr><td>||</td><td>or</td></tr>
-                    <tr><td>.ct.</td><td>contains</td></tr>
-                    <tr><td>.nc.</td><td>not contains</td></tr>
-                    <tr><td>.hn.</td><td>has name</td></tr>
-                    <tr><td>.ha.</td><td>has attribute</td></tr>
-                    <tr><td>.sw.</td><td>starts with</td></tr>
-                    <tr><td>.ew.</td><td>ends with</td></tr>
-                    <tr><td>'digit'</td><td>is digit</td></tr>
+                    <tr>
+                        <td>&amp;&amp;</td>
+                        <td>und</td>
+                    </tr>
+                    <tr>
+                        <td>||</td>
+                        <td>or</td>
+                    </tr>
+                    <tr>
+                        <td>.ct.</td>
+                        <td>contains</td>
+                    </tr>
+                    <tr>
+                        <td>.nc.</td>
+                        <td>not contains</td>
+                    </tr>
+                    <tr>
+                        <td>.hn.</td>
+                        <td>has name</td>
+                    </tr>
+                    <tr>
+                        <td>.ha.</td>
+                        <td>has attribute</td>
+                    </tr>
+                    <tr>
+                        <td>.sw.</td>
+                        <td>starts with</td>
+                    </tr>
+                    <tr>
+                        <td>.ew.</td>
+                        <td>ends with</td>
+                    </tr>
+                    <tr>
+                        <td>'digit'</td>
+                        <td>is digit</td>
+                    </tr>
                 </table>
             </div>
             <div class="step">
                 <h2 class="red">Vergleichsoperatoren</h2>
-                <table>    
-                    <tr><td>==</td><td>.eq.</td><td>ist gleich</td></tr>
-                    <tr><td>!=</td><td>.ne.</td><td>ist nicht gleich</td></tr>
-                    <tr><td>&lt;=</td><td>.le.</td><td>kleiner gleich</td></tr>
-                    <tr><td>&lt;</td><td>.lt.</td><td>kleiner als</td></tr>
-                    <tr><td>&gt;=</td><td>.ge.</td><td>größer gleich</td></tr>
-                    <tr><td>&gt;</td><td>.gt.</td><td>größer als</td></tr>
+                <table>
+                    <tr>
+                        <td>==</td>
+                        <td>.eq.</td>
+                        <td>ist gleich</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>.ne.</td>
+                        <td>ist nicht gleich</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;=</td>
+                        <td>.le.</td>
+                        <td>kleiner gleich</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>.lt.</td>
+                        <td>kleiner als</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;=</td>
+                        <td>.ge.</td>
+                        <td>größer gleich</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>.gt.</td>
+                        <td>größer als</td>
+                    </tr>
                 </table>
-                
-                <p class="x-small right"><a href="data/handbuch.pdf#page=457">Handbuch</a> S. 457-463</p>
+                <p class="x-small right"><a href="data/handbuch.pdf#page=457"
+                    >Handbuch</a> S. 457-463</p>
             </div>
             <div class="step">
                 <h2 class="red">Hilfe im Handbuch</h2>
                 <ul class="line-height-one-five">
                     <li>Gib Kommando &gt;<code>#*zebe</code></li>
-                    <li>Gib Kommando &gt;<code>suche</code> 
-                        <ul><li>indiziertes Handbuch<ul><li><code>alt+i</code> Index </li> <li><code>alt+v</code> Volltext</li><li> <code>--&gt;</code> nächster Eintrag</li><li> <code>&lt;--</code> letzter Eintrag</li></ul></li>
-                            <li>Gib Kommando &gt;<code>hilfe</code> Online Hilfe</li>
-                        </ul></li></ul>
+                    <li>Gib Kommando &gt;<code>suche</code>
+                        <ul><li>indiziertes Handbuch<ul><li><code>alt+i</code> Index </li>
+                        <li><code>alt+v</code> Volltext</li><li>
+                        <code>--&gt;</code> nächster Eintrag</li><li>
+                        <code>&lt;--</code> letzter Eintrag</li></ul></li>
+                        <li>Gib Kommando &gt;<code>hilfe</code> Online Hilfe</li> </ul></li>
+                </ul>
             </div>
-            
-           
             <!--<div class="step">
                 <h2 class="red">Zugriff auf Webinhalte </h2>
                 
@@ -300,10 +381,9 @@ ENDACCESS/PRINT q
 </code></pre>
                 <p class="x-small right"><code>hexerei</code></p>
             </div>-->
-            
             <div class="step">
                 <h2 class="red">Zugriff auf Webinhalt</h2>
-                <p>Frage: Enthält der XML-Text die Zeichenfolge "Hexeneinmaleins"?<br/>
+                <p>Frage: Enthält der XML-Text die Zeichenfolge "Hexeneinmaleins"?<br />
                 An welcher Position in der Hierarchie?</p>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 url="https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:11g9q.0/data"
@@ -317,7 +397,9 @@ IF (t.ct." Hexen-Einmaleins ") TRACE *t,stack_num
 ENDLOOP
 ENDACCESS/PRINT q                    
 </code></pre>
-                <p class="x-small right"><code>hexerei01</code></p>
+                <p class="x-small right">
+                    <code>hexerei01</code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">Typ</h2>
@@ -336,23 +418,56 @@ ACCESS q: READ/STREAM/VARIABLE/UTF8 daten s,a+t+e,typ,stack,stack_num
  ENDLOOP
 ENDACCESS/PRINT q                    
 </code></pre>
-                <p class="x-small right"><code></code></p>
+                <p class="x-small right">
+                    <code></code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">typ</h2>
                 <table>
-                    <tr><td>0</td><td>nur Text</td></tr>
-                    <tr><td>1</td><td>Anfangstag ggbf. auch Text</td></tr>
-                    <tr><td>2</td><td>Endetag ggbf. auch Text</td></tr>
-                    <tr><td>3</td><td>Anfangs- und Endetext ggbf. auch Text</td></tr>
-                    <tr><td>…</td><td></td></tr>
-                    <tr><td>-1</td><td>"&lt;" ohne passende "&gt;"</td></tr>
-                    <tr><td>-2</td><td>"&gt;" ohne passende "&lt;"</td></tr>
-                    <tr><td>…</td><td></td></tr>
-                    <tr><td>-3</td><td>Anfangstag und Endetag unterscheiden sich in Groß- und Kleinschreibung</td></tr>
-                    <tr><td>-6</td><td>Noch offen Tags am Dateiende</td></tr>
+                    <tr>
+                        <td>0</td>
+                        <td>nur Text</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Anfangstag ggbf. auch Text</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Endetag ggbf. auch Text</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Anfangs- und Endetext ggbf. auch Text</td>
+                    </tr>
+                    <tr>
+                        <td>…</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>-1</td>
+                        <td>"&lt;" ohne passende "&gt;"</td>
+                    </tr>
+                    <tr>
+                        <td>-2</td>
+                        <td>"&gt;" ohne passende "&lt;"</td>
+                    </tr>
+                    <tr>
+                        <td>…</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>-3</td>
+                        <td>Anfangstag und Endetag unterscheiden sich in Groß- und Kleinschreibung</td>
+                    </tr>
+                    <tr>
+                        <td>-6</td>
+                        <td>Noch offen Tags am Dateiende</td>
+                    </tr>
                 </table>
-                <p class="x-small right"><a href="data/handbuch.pdf#page=612">Handbuch</a> S. 612</p>
+                <p class="x-small right"><a href="data/handbuch.pdf#page=612"
+                    >Handbuch</a> S. 612</p>
             </div>
             <div class="step">
                 <h2 class="red">STACK_NUM</h2>
@@ -376,7 +491,9 @@ IF (stack_num.ct.stack_hexe&amp;&amp;t!="") PRINT/COLOR:F0 s,": ",t
 ENDLOOP
 ENDACCESS/PRINT q                   
 </code></pre>
-                <p class="x-small right"><code>hexerei03</code></p>
+                <p class="x-small right">
+                    <code>hexerei03</code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">Lese- und Schreibzugriff</h2>
@@ -398,19 +515,38 @@ ACCESS z: WRITE/ERASE/STREAM       $zieldatei s.z/u,a+t+e
 ENDACCESS/PRINT q
 ENDACCESS/PRINT z                    
 </code></pre>
-                <p class="x-small right"><code>hexerei04</code></p>
+                <p class="x-small right">
+                    <code>hexerei04</code>
+                </p>
             </div>
             <div class="step">
                 <h2>XML-Dateien im TUSTEP-Editor</h2>
                 <p>Beispieldatei: <code>faust1.tf</code></p>
                 <table>
-                    <tr><td>tp</td><td>Wohlgeformtheit prüfen</td></tr>
-                    <tr><td>tl</td><td>Tagliste</td></tr>
-                    <tr><td>tlh</td><td>Tagliste hierarchisch</td></tr>
-                    <tr><td>tli</td><td>Tagliste sortiert nach letztem Tag</td></tr>
-                    <tr><td>tz</td><td>Anzeige der Position</td></tr>
+                    <tr>
+                        <td>tp</td>
+                        <td>Wohlgeformtheit prüfen</td>
+                    </tr>
+                    <tr>
+                        <td>tl</td>
+                        <td>Tagliste</td>
+                    </tr>
+                    <tr>
+                        <td>tlh</td>
+                        <td>Tagliste hierarchisch</td>
+                    </tr>
+                    <tr>
+                        <td>tli</td>
+                        <td>Tagliste sortiert nach letztem Tag</td>
+                    </tr>
+                    <tr>
+                        <td>tz</td>
+                        <td>Anzeige der Position</td>
+                    </tr>
                 </table>
-                <p class="x-small right"><a href="">Handbuch</a></p>
+                <p class="x-small right">
+                    <a href="">Handbuch</a>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">Lese- und Schreibzugriff mit Bedingungen</h2>
@@ -445,9 +581,10 @@ ENDLOOP
 ENDACCESS/PRINT q
 ENDACCESS/PRINT z                    
 </code></pre>
-                <p class="x-small right"><code>hexerei05</code></p>
+                <p class="x-small right">
+                    <code>hexerei05</code>
+                </p>
             </div>
-            
             <div class="step">
                 <h2 class="red">DICTIONARY</h2>
                 <p>Frage: Wieviele Tags kommen, wie oft in der Datei vor?</p>
@@ -473,7 +610,9 @@ ERROR/STOP CREATE ("tags.tf",seq-e,-std-)
 
 DICT tags UNLOAD/FILE/COUNTER "tags.tf",";"
 </code></pre>
-                <p class="x-small right"><code>DICT_TAGS</code></p>
+                <p class="x-small right">
+                    <code>DICT_TAGS</code>
+                </p>
             </div>
             <!--<div class="step">
                 <h2 class="red">Dateizugriffe</h2>
@@ -495,12 +634,13 @@ ACCESS q: READ/STREAM/UTF8 "ISRAEL_R.xml" s,a+t+e,typ,stack,stack_num
  ENDLOOP
 ENDACCESS/PRINT q
 </code></pre>
-                <p class="x-small right"><code>access_xml</code></p>
+                <p class="x-small right">
+                    <code>access_xml</code>
+                </p>
             </div>
-            
             <div class="step">
                 <h2 class="red"><code>#*import</code> einer WORD-XML-Datei</h2>
-<pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
+                <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 files=FILE_NAMES (-,-std-)
 TRACE *files
 
@@ -531,7 +671,9 @@ LOOP/99999
 ENDLOOP
 ENDACCESS/PRINT q
 </code></pre>
-                <p class="x-small right"><code>access_xml_2</code></p>
+                <p class="x-small right">
+                    <code>access_xml_2</code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">IMPORT xml</h2>
@@ -561,7 +703,9 @@ LOOP/999999
 ENDLOOP
 ENDACCESS q
 ENDACCESS/PRINT z</code></pre>
-                <p class="right x-small"><code>importexport</code></p>
+                <p class="right x-small">
+                    <code>importexport</code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">Import xml - tf - Export xml</h2>
@@ -594,11 +738,15 @@ ENDLOOP
 ENDACCESS q
 ENDACCESS/PRINT z                    
 </code></pre>
-                <p class="x-small right"><code>importexp_02</code></p>
+                <p class="x-small right">
+                    <code>importexp_02</code>
+                </p>
             </div>
             <div class="step">
                 <h2 class="red">RTF-Datei(en) importieren</h2>
-                <h3><code>DEFINE</code></h3>
+                <h3>
+                    <code>DEFINE</code>
+                </h3>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 FETCH dsk = TUSTEP_DSK
 dirname=DIRNAME(dsk)
@@ -607,7 +755,9 @@ FETCH dirname = dirname
 projects=PROJECT_NAMES($dirname)
 files=FILE_NAMES (-,$dsk)
 </code></pre>
-                <h3><code>importrtf</code></h3>
+                <h3>
+                    <code>importrtf</code>
+                </h3>
                 <pre><code class="linenumbers">$$ MODE TUSCRIPT,{}
 INCLUDE "skripte" define
 rtffiles=FILTER (files," *.rtf ",-)
@@ -628,9 +778,7 @@ PRINT "Exportdatei: ",rtf,"
  status=CLOSE ("rtffile")
 ENDLOOP
 </code></pre>
-                
             </div>
-            
             <!-- Vorlage -->
             <!--<div class="step">
                 <h2 class="red"></h2>
@@ -638,22 +786,28 @@ ENDLOOP
                 <pre><code class="linenumbers">                    
 </code></pre>
                 <p class="x-small right"><code></code></p>
-            </div>-->            
-            
-            
+            </div>-->
             <div class="step">
                 <h2 class="red">Zählen und Suchen</h2>
-                <code class="small">FIND/NEXT d (anf,end,trenn,tausch; pos1,pos2,pos3; neg1,neg2,neg3; wdh)</code>
+                <code class="small"
+                    >FIND/NEXT d (anf,end,trenn,tausch; pos1,pos2,pos3; neg1,neg2,neg3; wdh)</code>
                 <div class="row">
                     <div class="four columns ">
-                
-                <blockquote class="small">Beim <strong>Suchen</strong> von Texteinheiten werden alle Sätze einer Texteinheit zu einer einzigen Zeichenfolge zusammengefasst; dann wird geprüft, ob diese Zeichenfolge die Suchbedingungen erfüllt.</blockquote>
-                        <p class="right x-small"><a href="data/handbuch.pdf#page=598">Handbuch</a>, S. 598</p>  </div>
-                    <div class="eight columns">              
-                <blockquote class="small">Die Anweisung <code>COUNT</code> zum Zählen bestimmter Texteinheiten entspricht […] der Anweisung <code>FIND</code> zum Suchen einer bestimmten Texteinheit [...]. Es wird derselbe Datenbereich wie bei der FIND-Anweisung durchsucht. Jedoch wird nicht nur die erste Texteinheit gesucht, die die Suchbedingungen erfüllt, sondern festgestellt, wieviele Texteinheiten insgesamt die Suchbedingung erfüllen.</blockquote><p class="right x-small"><a href="data/handbuch.pdf#page=600">Handbuch</a>, S. 600</p>
-                    
-                    </div></div>
-                <h3><code>count_find</code></h3>
+                        <blockquote class="small"
+                            >Beim <strong>Suchen</strong> von Texteinheiten werden alle Sätze einer Texteinheit zu einer einzigen Zeichenfolge zusammengefasst; dann wird geprüft, ob diese Zeichenfolge die Suchbedingungen erfüllt.</blockquote>
+                        <p class="right x-small"><a href="data/handbuch.pdf#page=598"
+                            >Handbuch</a>, S. 598</p>
+                    </div>
+                    <div class="eight columns">
+                        <blockquote class="small"
+                            >Die Anweisung <code>COUNT</code> zum Zählen bestimmter Texteinheiten entspricht […] der Anweisung <code>FIND</code> zum Suchen einer bestimmten Texteinheit [...]. Es wird derselbe Datenbereich wie bei der FIND-Anweisung durchsucht. Jedoch wird nicht nur die erste Texteinheit gesucht, die die Suchbedingungen erfüllt, sondern festgestellt, wieviele Texteinheiten insgesamt die Suchbedingung erfüllen.</blockquote>
+                        <p class="right x-small"><a href="data/handbuch.pdf#page=600"
+                            >Handbuch</a>, S. 600</p>
+                    </div>
+                </div>
+                <h3>
+                    <code>count_find</code>
+                </h3>
                 <pre><code class="linenumbers">$$! suche=Zwei
 $$ MODE TUSCRIPT,{}
 file="hexe.tf"
@@ -676,7 +830,6 @@ ENDLOOP
 ENDACCESS q
 </code></pre>
             </div>
-            
             <!--<div class="step">
                 <h2>WRITE/STRUCTURES</h2>
                 <blockquote>Daten mit definierten Dateistrukturen</blockquote>
@@ -698,11 +851,10 @@ ENDACCESS q
                 <h2 class="red">Software &amp; Literatur</h2>
                 <h4>Software</h4>
                 <ul class="small line-height-one-five">
-                    <li>
-                        <a href="https://github.com/impress/impress.js">Impress.js</a>
+                    <li> <a href="https://github.com/impress/impress.js">Impress.js</a>
                         (Präsentation) </li>
-                    <li>
-                        <a href="https://github.com/dimsemenov/Magnific-Popup">Magnific Popup</a>
+                    <li> <a href="https://github.com/dimsemenov/Magnific-Popup"
+                        >Magnific Popup</a>
                         (Lightbox) </li>
                 </ul>
             </div>
@@ -716,7 +868,9 @@ ENDACCESS q
                 </div>
                 <div class="centered down-100">
                     <h3>
-                        <a href="#literature">Software und Literatur</a></h3><p class="x-small"></p>
+                        <a href="#literature">Software und Literatur</a>
+                    </h3>
+                    <p class="x-small"></p>
                 </div>
             </div>
         </div>
@@ -734,40 +888,27 @@ ENDACCESS q
         <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
         <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
         <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
-            mode: "application/sparql-query",
-            matchBrackets: true,
-            lineNumbers: true,
-            viewportMargin: Infinity
-        });
-        </script>
+            var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+                mode: "application/sparql-query",
+                matchBrackets: true,
+                lineNumbers: true,
+                viewportMargin: Infinity
+            });</script>
         <!-- highlight -->
         <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script src="resources/js/hljs.linenumbering.js"></script>
-        <!-- swiper -->
-        <script src="vendor/swiper/swiper.min.js"></script>
         <script>
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            spaceBetween: 30,
-            hashnav: true
-        });
-        </script>
-       <!-- magnific popup -->
+            hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- magnific popup -->
         <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
         <script src="resources/js/magnific-popup.lightbox.js"></script>
         <!-- impress.mod.js -->
         <script src="vendor/impress/impress.fork.js"></script>
         <script src="vendor/impress/impress-slidenum.js"></script>
         <script>
-        var obj = impress();
-        obj.init();
-        initSlideNo(obj);
-        </script>
+            var obj = impress();
+            obj.init();
+            initSlideNo(obj);</script>
         <!-- Links to TEI-Documentation -->
         <script src="resources/js/tei-documentation-links.js">
         </script>
